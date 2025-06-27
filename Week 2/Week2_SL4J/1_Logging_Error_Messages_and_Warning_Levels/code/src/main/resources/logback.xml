@@ -1,0 +1,37 @@
+<!--
+  Logback configuration file.
+  This file controls how the log messages are formatted and where they are sent.
+  It should be placed in the `src/main/resources` directory.
+-->
+<configuration>
+
+    <!-- 
+      This appender outputs log messages to the console.
+      It's named "STDOUT".
+    -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!--
+          This encoder defines the pattern for the log output.
+          %d - Date and time
+          %thread - The thread name that logged the message
+          %-5level - The logging level (ERROR, WARN, INFO, etc.), left-justified with 5 characters
+          %logger{36} - The logger name, truncated to 36 characters
+          %msg - The actual log message
+          %n - Newline character
+        -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--
+      The root logger configuration.
+      It's set to the INFO level, meaning it will log messages of level INFO, WARN, and ERROR.
+      DEBUG and TRACE messages will be ignored unless the level is changed to DEBUG or TRACE.
+    -->
+    <root level="info">
+        <!-- Attach the console appender to the root logger -->
+        <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>

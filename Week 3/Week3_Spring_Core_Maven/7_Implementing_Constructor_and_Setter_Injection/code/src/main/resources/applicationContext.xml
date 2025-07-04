@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Bean for the data layer -->
+    <bean id="bookRepository" class="com.library.Repository.BookRepository" />
+
+    <!-- Bean for a simple model object -->
+    <bean id="librarian" class="com.library.model.Librarian">
+        <property name="name" value="Mr. Smith" />
+    </bean>
+
+    <!--
+      Bean definition for BookService using BOTH injection types.
+      1. Constructor Injection: The 'bookRepository' is injected via the constructor.
+         The <constructor-arg> tag is used for this.
+      2. Setter Injection: The 'librarian' is injected via its setter method.
+         The <property> tag is used for this.
+    -->
+    <bean id="bookService" class="com.library.Service.BookService">
+        <constructor-arg ref="bookRepository" />
+        <property name="librarian" ref="librarian" />
+    </bean>
+
+</beans>

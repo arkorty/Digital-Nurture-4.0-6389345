@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!--
+		Parent POM:
+		This section defines the parent project from which this project inherits configurations.
+		Spring Boot Starters provide sensible defaults for dependency management and build configuration.
+	-->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.3.1</version> <!-- This version might vary based on when you download from start.spring.io -->
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<!-- Project Coordinates -->
+	<groupId>com.cognizant</groupId>
+	<artifactId>spring-learn</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>spring-learn</name>
+	<description>Demo project for Spring Boot</description>
+
+	<!-- Project Properties -->
+	<properties>
+		<java.version>17</java.version> <!-- Specifies the Java version to be used for compilation and execution -->
+	</properties>
+
+	<!--
+		Dependencies:
+		This section lists all the libraries (dependencies) required by your project.
+		Spring Boot Starters simplify dependency management by bundling common dependencies.
+	-->
+	<dependencies>
+		<!--
+			Spring Boot Starter Web:
+			Provides all the necessary dependencies for building web applications,
+			including Tomcat, Spring MVC, and RESTful capabilities.
+		-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!--
+			Spring Boot DevTools:
+			Provides development-time features such as automatic restarts, LiveReload,
+			and enhanced error pages. It's meant for development only and is automatically
+			excluded from production builds.
+		-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope> <!-- This dependency is only needed at runtime during development -->
+			<optional>true</optional> <!-- It's an optional dependency, not required for compilation -->
+		</dependency>
+
+		<!--
+			Spring Boot Starter Test:
+			Provides dependencies for testing Spring Boot applications, including JUnit, Mockito,
+			and Spring Test.
+		-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope> <!-- This dependency is only needed for running tests -->
+		</dependency>
+	</dependencies>
+
+	<!--
+		Build Configuration:
+		This section defines how the project is built.
+	-->
+	<build>
+		<plugins>
+			<!--
+				Spring Boot Maven Plugin:
+				Provides Spring Boot support in Maven, allowing you to package your application
+				as an executable JAR/WAR and run it directly from Maven.
+			-->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
